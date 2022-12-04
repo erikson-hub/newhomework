@@ -1,0 +1,38 @@
+body {
+  font-family: cursive;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: auto;
+  margin: 50px auto;
+  flex-direction: column;
+}
+.table {
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #000;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+}
+.table td {
+  text-align: left;
+  padding: 16px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
