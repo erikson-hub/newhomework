@@ -1,19 +1,19 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 /* Nav bar */
 nav {
-  background-color: #e15282;
-  color: #fff;
+   background-color: #e15282;
+   color: #fff;
 }
 .navbar-nav {
-  padding: 11px 20px;
+   padding: 11px 20px;
 }
 .nav-link {
-  margin-left: 10px;
-  margin-right: 10px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 .nav-link {
-  color: #fff;
+   color: #fff;
 }
