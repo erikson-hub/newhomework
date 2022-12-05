@@ -1,11 +1,17 @@
-import { users } from "../users/users.js";
+// Limpiar local storage user
+const nav = document.querySelector("#Form");
+nav.addEventListener("click", () => {
+   if (localStorage.getItem("user") != null) {
+      localStorage.setItem("user", null);
+   }
+});
 
 // Crear filas de la tabla
 function rows_table(users, tbody) {
    users.forEach((user) => {
       const tr = document.createElement("tr");
       tbody.append(tr);
-      const keys = Object.keys(users[0]); // Atributos de los objetos
+      const keys = Object.keys(user);
       keys.push("datos");
       keys.forEach((key) => {
          const td = document.createElement("td");
@@ -37,8 +43,7 @@ function users_table(users) {
       "Nombre",
       "Apellido",
       "Correo",
-      "Sueldo bruto",
-      "Sueldo neto",
+      "Cargo",
       "Datos empleado",
    ];
    const thead = document.createElement("thead");
@@ -70,11 +75,10 @@ function send_user_data() {
             nombre: tds[1].textContent,
             apellido: tds[2].textContent,
             correo: tds[3].textContent,
-            sueldobruto: tds[4].textContent,
-            sueldoneto: tds[5].textContent,
+            cargo: tds[4].textContent,
          };
          localStorage.setItem("user", JSON.stringify(user));
-         link.href = `../employee/index.html?codigo=${user.codigo}`; // redireccionar
+         link.href = `../form/form.html?codigo=${user.codigo}`; // redireccionar
          window.location.href = link.href;
       });
    });
@@ -82,7 +86,12 @@ function send_user_data() {
 
 // Ordenar por atributo de forma ascendente o descendente
 function sortBy(users, prop, asc) {
-   if (prop === "nombre" || prop === "apellido" || prop === "correo") {
+   if (
+      prop === "nombre" ||
+      prop === "apellido" ||
+      prop === "correo" ||
+      prop === "cargo"
+   ) {
       return users.sort((a, b) => {
          if (asc) {
             return a[prop].localeCompare(b[prop]);
@@ -134,10 +143,11 @@ function sort_by_headers(users) {
    });
 }
 
-function main() {
+function render() {
+   let users = JSON.parse(localStorage.getItem("users"));
    users_table(users);
    sort_by_headers(users);
    send_user_data();
 }
 
-main();
+render();
