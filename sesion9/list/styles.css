@@ -57,3 +57,7 @@
 h2 {
    padding-bottom: 20px;
 }
+
+.table.employee th{
+   padding: 16px 20px;
+}
