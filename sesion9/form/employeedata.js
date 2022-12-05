@@ -96,22 +96,27 @@ editar.addEventListener("click", () => {
 // Guardar los datos editados
 const guardar = document.getElementById("guardar");
 guardar.addEventListener("click", () => {
-   const inputs = document.querySelectorAll("input");
-   inputs.forEach((input) => {
-      user[input.name] = input.value;
-   });
-   user.cargo = document.querySelector("select").value;
-   // Guardar los datos en el localStorage users
-   const users = JSON.parse(localStorage.getItem("users"));
-   users.forEach((usr) => {
-      if (usr.correo === user.correo) {
-         usr.nombre = user.nombre;
-         usr.apellido = user.apellido;
-         usr.correo = user.correo;
-         usr.cargo = user.cargo;
-      }
-   });
-   localStorage.setItem("users", JSON.stringify(users));
-   alert("Los datos se han guardado correctamente");
-   window.location.href = "../list/list.html";
+   const input = document.querySelectorAll("input");
+   if (input[0].readOnly === false) {
+      const inputs = document.querySelectorAll("input");
+      inputs.forEach((input) => {
+         user[input.name] = input.value;
+      });
+      user.cargo = document.querySelector("select").value;
+      // Guardar los datos en el localStorage users
+      const users = JSON.parse(localStorage.getItem("users"));
+      users.forEach((usr) => {
+         if (usr.correo === user.correo) {
+            usr.nombre = user.nombre;
+            usr.apellido = user.apellido;
+            usr.correo = user.correo;
+            usr.cargo = user.cargo;
+         }
+      });
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Los datos se han guardado correctamente");
+      window.location.href = "../list/list.html";
+   } else {
+      alert("Primero debe habilitar la edición de los datos");
+   }
 });

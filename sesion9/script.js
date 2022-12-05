@@ -1,9 +1,13 @@
 import { Empleado } from "./form/employee.js";
 
+let users = [];
+localStorage.setItem("users", JSON.stringify(users));
+
 // limpiar localStorage users cuando se inicia la página
-if (localStorage.getItem("users") != null) {
-   localStorage.setItem("users", "[]");
-}
+// if (localStorage.getItem("users") != null) {
+//    localStorage.setItem("users", "[]");
+// }
+
 // limpiar localStorage user cuando se inicia la página
 if (localStorage.getItem("user") != null) {
    localStorage.setItem("user", null);
